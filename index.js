@@ -102,6 +102,8 @@ app.get("/user", isLoggedIn, function(req,res) {
 
 app.use('/auth', require('./controllers/auth'));
 
+app.use('/posting', require('./controllers/posting'));
+
 
 // guest
 app.get("/guest", function(req,res) {
