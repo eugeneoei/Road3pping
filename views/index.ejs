@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Road3ripping</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+    <script type="text/javascript" src="main.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <p>Background image of a map that can zoom in and out</p>
+
+    <div id="container">
+
+      <div id="logo">ROAD3PPING</div>
+
+      <div>
+        <form action="auth/login" method="GET">
+          <button id="loginButton">Log in!</button>
+        </form>
+
+        <form action="auth/signup" method="GET">
+          <button id="signupButton">Sign up!</button>
+        </form>
+
+        <form action="/guest" method="GET">
+          <button id="viewButton">View!</button>
+        </form>
+      </div>
+
+      <div id="logOutMessage"><% include ./partials/alerts %></div>
+
+    </div>
+
+
+
+  </body>
+</html>

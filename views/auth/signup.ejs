@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Road 3ripping</title>
+    <link rel="stylesheet" type="text/css" href="../signup.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <!-- you dont have to load a script if you dont need it -->
+    <!-- <script type="text/javascript" src="/main.js"></script> -->
+  </head>
+  <body>
+    <p>this is a sign up page. body  background image of a map that can zoom in and out</p>
+
+    <div id="container">
+
+      <div>Road3pping LOGO here</div>
+
+      <div>
+        <div>What are you waiting for?<br>Sign up!</div>
+
+        <form action="/auth/signup" method="POST">
+          <input id="signupEmail" class="input" type="text" name="username" placeholder="Email">
+          <input id="firstName" class="input" type="text" name="firstName" placeholder="First Name">
+          <input id="lastName" class="input" type="text" name="lastName" placeholder="Last Name">
+          <input id="signupPassword" class="input" type="password" name="password" placeholder="Password">
+          <button id="signupButton">Sign up!</button>
+        </form>
+
+
+        <% include ../partials/alerts %>
+
+      </div>
+
+    </div>
+
+
+
+  </body>
+</html>

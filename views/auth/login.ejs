@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Road 3ripping</title>
+    <link rel="stylesheet" href="../login.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <!-- you dont have to load a .js if you dont need it! -->
+    <!-- <script type="text/javascript" src="../main.js"></script> -->
+  </head>
+  <body>
+    <p>this is a login page. body background image of a map that can zoom in and out</p>
+
+    <div id="Container">
+
+      <div>Road3pping LOGO here</div>
+
+      <div>
+
+        <div>Have an account?<br>Log in!</div>
+
+        <form action="/auth/login" method="POST">
+          <input id="loginEmail" class="input" type="text" name="username" placeholder="Email">
+          <input id="loginPassword" class="input" type="password" name="password" placeholder="Password">
+          <button id="loginButton">Log in!</button>
+        </form>
+
+
+        <% include ../partials/alerts %>
+
+      </div>
+
+    </div>
+
+
+
+  </body>
+</html>

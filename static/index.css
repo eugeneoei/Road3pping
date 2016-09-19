@@ -1,0 +1,44 @@
+body {
+  text-align: center;
+  margin: 0px;
+  margin-top: -16px;
+}
+
+#map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /*background-color: yellow;*/
+}
+
+#signupButton {
+  display:inline-block;
+}
+
+#viewButton {
+  display:inline-block;
+}
+
+#container {
+  /* border: 1px solid black; */
+  width: 300px;
+  height: 250px;
+  /* margin: 0 auto; */
+  background-color: black;
+  opacity: 0.4;
+  margin-top: 10%;
+  display: inline-block;
+  position: fixed;
+}
+
+
+#logo {
+  font-family: 'Rock Salt', cursive;
+  color: white;
+  font-size: 30px;
+}
+
+#logOutMessage {
+  color: white;
+}

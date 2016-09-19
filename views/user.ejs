@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Road3ripping</title>
+  <link rel="stylesheet" href="user.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <script type="text/javascript" src="user.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+</head>
+  <body>
+    <div id="map"></div>
+
+    <div id="rightContainer">
+      <div id="logo">ROAD<br>3PPING</div>
+      <div id="greeting"><strong>Hello</strong> <%- currentUser.firstName %>!</div>
+      <form action="/auth/logout" METHOD="GET">
+        <button id="logoutButton">Log out!</button>
+      </form>
+
+      <p>this is a homepage after client successfully logged in or signed up</p>
+
+      <!-- this alert will show when user has either logged in or signed up successfully -->
+      <% include ./partials/alerts %>
+
+      <button id="create">CREATE</button>
+      <button id="edit">EDIT</button>
+      <button id="view">VIEW</button>
+
+
+
+
+
+    </div>
+
+
+  </body>
+</html>

@@ -1,0 +1,32 @@
+body {
+  margin: 0px;
+}
+
+#map {
+  /*background-color: #032459;*/
+  position: absolute;
+  left: 0px;
+  width: 40%;
+  height: 100%;
+}
+
+#rightContainer {
+  /*background-color: #EDE5CA;*/
+  position: absolute;
+  right: 0px;
+  width: 60%;
+  height: 100%;
+}
+
+#logo {
+  font-family: 'Rock Salt', cursive;
+  color: black;
+  font-size: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+
+}
+
+#greeting {
+  display: inline-block;
+}
