@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Road3ripping</title>
+  <link rel="stylesheet" href="../posts.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <!-- need user.js file to run script -->
+  <script type="text/javascript" src="../user.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+</head>
+  <body>
+    <div id="map"></div>
+
+    <div id="rightContainer">
+      <div id="logo">ROAD<br>3PPING</div>
+      <div id="greeting"><strong>Hello</strong> <%- currentUser.firstName %>!</div>
+      <form action="/auth/logout" METHOD="GET">
+        <button id="logoutButton">Log out!</button>
+      </form>
+
+      <!-- this alert will show when user has either logged in or signed up successfully -->
+      <% include ./partials/alerts %>
+
+      <p>after client creates a new post, gets redirected here, displaying all
+      posts he/she has created</p>
+
+      <p>this is a view all posts by user page</p>
+      <p>need to display all information of posts here</p>
+
+
+      <h1>all posts</h1>
+      <div>
+        <% for(var i = 0; i < data.length; i++) { %>
+          <% var title = data[i].dataValues.title %>
+          <% var address = data[i].dataValues.address %>
+          <% var imageURL = data[i].dataValues.imageURL %>
+          <% var description = data[i].dataValues.description %>
+          <% var id = data[i].dataValues.id %>
+
+        <div>title: <%= title %></div>
+        <div>address: <%= address %></div>
+        <div>image url: <%= imageURL %></div>
+        <div>description: <%= description %></div>
+        <a href="/posting/posts/<%= id %>/edit">
+          EDIT
+        </a>
+
+
+        <% } %>
+
+
+
+      </div>
+
+
+
+      <!-- need method override for edit
+      or do the index.html way? out edit button
+      inside VIEW YOUR POSTS? and delete button too?-->
+      <!-- use bootstrap pop up for edit? -->
+      <!-- <p>edit and delete button for each post</p>
+      <form action="/posting/:id?_method=PUT" METHOD="POST">
+        <button id="edit">EDIT</button>
+      </form>
+      <form action="/posting/id?_method=DELETE" METHOD="POST">
+        <button id="edit">DELETE</button>
+      </form> -->
+
+    </div>
+
+
+  </body>
+</html>

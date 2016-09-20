@@ -26,18 +26,20 @@
       <!-- this alert will show when user has either logged in or signed up successfully -->
       <% include ./partials/alerts %>
 
-      <form action="/posting/create" METHOD="GET">
-        <button id="create">CREATE</button>
+      <form action="/posting/post" METHOD="GET">
+        <button id="post">POST</button>
       </form>
 
-      <!-- need method override for edit
-      or do the index.html way?-->
-      <form action="/posting/create" METHOD="GET">
-        <button id="edit">EDIT</button>
+
+
+      <!-- view all user's posts -->
+      <form action="/posting/posts" METHOD="GET">
+        <button id="view">VIEW YOUR POSTS</button>
       </form>
 
-      <form action="/posting/view" METHOD="GET">
-        <button id="view">VIEW</button>
+      <!-- view different categories -->
+      <form action="" METHOD="GET">
+        <button id="categories">CATEGORIES</button>
       </form>
 
 

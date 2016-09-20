@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Road3ripping</title>
+  <link rel="stylesheet" href="/edit.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <!-- need user.js file to run script -->
+  <script type="text/javascript" src="/user.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+</head>
+  <body>
+    <div id="map"></div>
+
+    <div id="rightContainer">
+      <div id="logo">ROAD<br>3PPING</div>
+      <div id="greeting"><strong>Hello</strong> <%- currentUser.firstName %>!</div>
+      <form action="/auth/logout" METHOD="GET">
+        <button id="logoutButton">Log out!</button>
+      </form>
+
+      <!-- this alert will show when user has either logged in or signed up successfully -->
+      <% include ./partials/alerts %>
+
+      <p>after clicking edit, client can edit/delete and make changes to his/her post here</p>
+
+
+      <h1>post details</h1>
+      <div>
+        <% var title = data.dataValues.title %>
+        <% var address = data.dataValues.address %>
+        <% var imageURL = data.dataValues.imageURL %>
+        <% var description = data.dataValues.description %>
+        <% var id = data.dataValues.id %>
+
+        <form action="/posting/posts/<%= id %>?_method=PUT" method="POST">
+
+          <div>
+            title: <input type="text" name="title" value="<%= title %>"></input>
+          </div>
+
+          <div>
+            address: <input type="text" name="address" value="<%= address %>"></input>
+          </div>
+
+          <div>
+            imageURL: <input type="text" name="imageURL" value="<%= imageURL %>"></input>
+          </div>
+
+          <div>
+            description: <input type="text" name="description" value="<%= description %>"></input>
+          </div>
+
+          <button value="<%= id %>">UPDATE</button>
+
+        </form>
+
+        <form action="posting/posts/<%= id %>?_method=DELETE" method="POST">
+          <button value="<%= id %>">DELETE</button>
+        </form>
+
+      </div>
+
+    </div>
+
+
+  </body>
+</html>

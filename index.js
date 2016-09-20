@@ -10,8 +10,11 @@ var db = require('./models');
 var passport = require('./config/ppConfig');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
+var methodOverride = require('method-override');
+
 var app = express();
 
+app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 
@@ -113,6 +116,8 @@ app.get("/guest", function(req,res) {
 
 
 var server = app.listen(3000);
+
+// process.env.port ||
 
 module.exports = server;
 
