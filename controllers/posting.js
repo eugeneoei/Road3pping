@@ -84,10 +84,21 @@ router.put('/posts/:id', isLoggedIn, function(req,res) {
   })
 })
 
+router.delete('/posts/:id', isLoggedIn, function(req,res) {
+  console.log("post deleted");
+  db.posting.destroy({
+    where: {id: req.params.id}
+  }).then(function() {
+    res.redirect('/posting/posts');
+  })
+})
 
 
-// router.delete
-
+db.user.destroy({
+  where: { firstName: 'Brian' }
+}).then(function() {
+  // do something when done deleting
+});
 
 
 module.exports = router;

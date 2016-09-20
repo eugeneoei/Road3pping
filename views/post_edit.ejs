@@ -51,14 +51,14 @@
           </div>
 
           <div>
-            description: <input type="text" name="description" value="<%= description %>"></input>
+            description: <textarea type="text" name="description" rows="10" cols="40"><%= description %></textarea>
           </div>
 
           <button value="<%= id %>">UPDATE</button>
 
         </form>
 
-        <form action="posting/posts/<%= id %>?_method=DELETE" method="POST">
+        <form action="/posting/posts/<%= id %>?_method=DELETE" method="POST">
           <button value="<%= id %>">DELETE</button>
         </form>
 
