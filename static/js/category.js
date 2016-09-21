@@ -15,10 +15,14 @@ $("document").ready(function(){
 
   // global variable to store lat-long pair values
   var coordinates = [];
-  // attach all latitude values to an array
+  // attach all latitude values to a variable
   var latitude = document.getElementsByClassName("latitude");
-  // attach all longitude values to an array
+  // attach all longitude values to a variable
   var longitude = document.getElementsByClassName("longitude");
+  // attach all title values to a variable
+  var title = document.getElementsByClassName("title");
+
+  console.log(title);
 
   // both latitude.length or longitude.length will work fine
   // since they both come as a pair
@@ -30,9 +34,18 @@ $("document").ready(function(){
 
   console.log(coordinates);
 
+
   for (var i = 0; i < coordinates.length; i++) {
-    L.marker(coordinates[i]).addTo(map);
+    // L.marker(coordinates[i]).addTo(map).bindPopup(title[i].value);
+    // L.marker(coordinates[i]).addTo(map).openPopup(title[i].value);
+
+    var marker = L.marker(coordinates[i]).addTo(map).bindPopup(title[i].value).openPopup();
+    // var markers = [];
+    // markers.push(marker);
+    // var cities = L.layerGroup(markers);
+    // console.log(cities);
   }
+  // marker.bindPopup("title").openPopup();
 
 
   // L.marker([1.375133, 103.846914]).addTo(map);

@@ -36,6 +36,24 @@ function displayCategories() {
   $("#rightContainer").append(
     "<div>" +
       "<a href='posting/categories/cafes'>CAFES</a>" +
+    "</div>" +
+    "<div>" +
+      "<a href='posting/categories/gym'>GYMS</a>" +
+    "</div>" +
+    "<div>" +
+      "<a href='posting/categories/scenic'>SCENIC OVERLOOK</a>" +
+    "</div>" +
+    "<div>" +
+      "<a href='posting/categories/pharmacy'>PHARMACY</a>" +
+    "</div>" +
+    "<div>" +
+      "<a href='posting/categories/laundry'>LAUNDRY</a>" +
+    "</div>" +
+    "<div>" +
+      "<a href='posting/categories/supermarkets'>SUPERMARKETS</a>" +
+    "</div>" +
+    "<div>" +
+      "<a href='posting/categories/trails'>TRAILS</a>" +
     "</div>"
   )
 }

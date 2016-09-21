@@ -5,9 +5,17 @@ var router = express.Router();
 var isLoggedIn = require('../middleware/isLoggedIn');
 var methodOverride = require('method-override');
 
+// convert address to longitude and latitude
+var NodeGeocoder = require('node-geocoder');
+var options = {
+  provider: 'google',
 
-
-
+  // Optional depending on the providers
+  httpAdapter: 'https', // Default
+  apiKey: process.env.KEY_SECRET, // for Mapquest, OpenCage, Google Premier
+  formatter: null         // 'gpx', 'string', ...
+};
+var geocoder = NodeGeocoder(options);
 
 var app = express();
 
@@ -64,7 +72,10 @@ router.post('/create', isLoggedIn, function(req,res) {
 router.get('/posts', isLoggedIn, function(req,res) {
   // console.log("look here:", req.user.dataValues.id);
   db.posting.findAll({
-    where: {userID: req.user.dataValues.id}
+    where: {userID: req.user.dataValues.id},
+    order: [
+      ['createdAt', 'ASC'],
+    ]
   }).then(function(data) {
     // console.log(data);
     // console.log("number of posts by current user:", data.length);
@@ -72,6 +83,11 @@ router.get('/posts', isLoggedIn, function(req,res) {
     // console.log("view all post by user rendered");
   })
 })
+
+order: [
+    // Will escape username and validate DESC against a list of valid direction parameters
+    ['username', 'DESC'],
+  ]
 
 // allow user to make changes to respective post
 router.get('/posts/:id/edit', isLoggedIn, function(req,res) {
@@ -116,27 +132,80 @@ router.delete('/posts/:id', isLoggedIn, function(req,res) {
 })
 
 
-// convert address to longitude and latitude
-var NodeGeocoder = require('node-geocoder');
-var options = {
-  provider: 'google',
-
-  // Optional depending on the providers
-  httpAdapter: 'https', // Default
-  apiKey: process.env.KEY_SECRET, // for Mapquest, OpenCage, Google Premier
-  formatter: null         // 'gpx', 'string', ...
-};
-var geocoder = NodeGeocoder(options);
-
 router.get('/categories/cafes', function(req,res) {
   // console.log("look here:", req);
   // console.log("display categories");
   db.posting.findAll({
-      where: {category: "cafes"}
+      where: {category: "Cafes"}
   }).then(function(data) {
     console.log(data);
     res.render('category.ejs',{data:data});
+  })
+})
 
+router.get('/categories/gym', function(req,res) {
+  // console.log("look here:", req);
+  // console.log("display categories");
+  db.posting.findAll({
+      where: {category: "Gym"}
+  }).then(function(data) {
+    console.log(data);
+    res.render('category.ejs',{data:data});
+  })
+})
+
+router.get('/categories/scenic', function(req,res) {
+  // console.log("look here:", req);
+  // console.log("display categories");
+  db.posting.findAll({
+      where: {category: "Scenic Overlook"}
+  }).then(function(data) {
+    console.log(data);
+    res.render('category.ejs',{data:data});
+  })
+})
+
+router.get('/categories/pharmacy', function(req,res) {
+  // console.log("look here:", req);
+  // console.log("display categories");
+  db.posting.findAll({
+      where: {category: "Pharmacy"}
+  }).then(function(data) {
+    console.log(data);
+    res.render('category.ejs',{data:data});
+  })
+})
+
+router.get('/categories/laundry', function(req,res) {
+  // console.log("look here:", req);
+  // console.log("display categories");
+  db.posting.findAll({
+      where: {category: "Laundry"}
+  }).then(function(data) {
+    console.log(data);
+    res.render('category.ejs',{data:data});
+  })
+})
+
+router.get('/categories/supermarkets', function(req,res) {
+  // console.log("look here:", req);
+  // console.log("display categories");
+  db.posting.findAll({
+      where: {category: "Supermarkets"}
+  }).then(function(data) {
+    console.log(data);
+    res.render('category.ejs',{data:data});
+  })
+})
+
+router.get('/categories/trails', function(req,res) {
+  // console.log("look here:", req);
+  // console.log("display categories");
+  db.posting.findAll({
+      where: {category: "Trails"}
+  }).then(function(data) {
+    console.log(data);
+    res.render('category.ejs',{data:data});
   })
 })
 
