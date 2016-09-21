@@ -13,7 +13,30 @@ $("document").ready(function(){
    accessToken: 'pk.eyJ1IjoiZXVnZW5lb2VpIiwiYSI6ImNpdDlnanl3bTBqNm8yb3AydGIzdnFncHQifQ.xbhCGgpxzfwL_NtEFDWkXg'
   }).addTo(map)
 
-  
+  // global variable to store lat-long pair values
+  var coordinates = [];
+  // attach all latitude values to an array
+  var latitude = document.getElementsByClassName("latitude");
+  // attach all longitude values to an array
+  var longitude = document.getElementsByClassName("longitude");
+
+  // both latitude.length or longitude.length will work fine
+  // since they both come as a pair
+  for (var i = 0; i < latitude.length; i++) {
+  	var pairLatLong = [];
+  	pairLatLong.push( latitude[i].value, longitude[i].value );
+  	coordinates.push(pairLatLong);
+  }
+
+  console.log(coordinates);
+
+  for (var i = 0; i < coordinates.length; i++) {
+    L.marker(coordinates[i]).addTo(map);
+  }
+
+
+  // L.marker([1.375133, 103.846914]).addTo(map);
+
 
 //  var map = L.map('map', {
 //      // latitude then longtitude
@@ -28,6 +51,14 @@ $("document").ready(function(){
 // }).addTo(map)
 
 
+  // var address = document.getElementsById("address").textContent;
+  //
+  // coordinates.push(address);
+  //
+  // console.log(coordinates);
+
+
+
 });
 
 // http://api.mapbox.com/v4/mapbox.streets.html?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpbTgzcHQxMzAxMHp0eWx4bWQ1ZHN2NGcifQ.WVwjmljKYqKciEZIC3NfLA#17/1.35808/103.84800
@@ -36,37 +67,3 @@ $("document").ready(function(){
 // pk.eyJ1IjoiZXVnZW5lb2VpIiwiYSI6ImNpdDlnanl3bTBqNm8yb3AydGIzdnFncHQifQ.xbhCGgpxzfwL_NtEFDWkXg
 // different type of tile layers can google for different styles
 // load tile layer
-
-// function logIn() {
-//   // log to check if login button has been clicked
-//   console.log("login button clicked");
-//   // package login information and send it to server together
-//   // with an ajax post request
-//   var data = {username: $("#longinEmail").val(),
-//               password: $("longinPassword").val()};
-//   // send an ajax POST request
-//   $.ajax({
-//     url: "http://localhost:3000/login",
-//     method: "POST",
-//     data: data
-//   })
-//   console.log("login POST request submitted");
-// }
-//
-//
-// function signUp() {
-//   // log to check if login button has been clicked
-//   console.log("signup button clicked");
-//   // package signup information and send it to server together
-//   // with an ajax post request
-//   var data = {username: $("#signupEmail").val(),
-//               firstName: $("#firstName").val(),
-//               lastName: $("#lastName").val(),
-//               password: $("#signupPassword").val()};
-//   // send an ajax POST request
-//   $.ajax({
-//     url: "http://localhost:3000/signup",
-//     method: "POST",
-//     data: data
-//   })
-// }

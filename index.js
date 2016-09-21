@@ -12,6 +12,8 @@ var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var methodOverride = require('method-override');
 
+
+
 var app = express();
 
 app.use(methodOverride('_method'));
@@ -57,52 +59,6 @@ app.get("/user", isLoggedIn, function(req,res) {
 })
 
 
-
-// login
-// app.get("/login", function(req,res) {
-//   res.render("login.ejs");
-//   console.log("log in page rendered")
-// });
-
-//
-// app.post("/login", login);
-//
-// function login(req,res) {
-//   db.user.find({
-//     where: {
-//       username: req.body.username,
-//       password: req.body.password
-//     }
-//   }).then(function(data) {
-//     console.log("data");
-//     res.render('user.ejs', {data:data});
-//     console.log("home page rendered after log in");
-//   })
-// }
-
-
-// signup
-// app.get("/signup", function(req,res){
-//   res.render("signup.ejs");
-//   console.log("sign up page rendered");
-// })
-// app.post("/signup", signup);
-//
-// function signup(req,res) {
-//   db.user.findOrCreate({
-//     where: {username: req.body.username},
-//     defaults: {
-//       firstName: req.body.firstName,
-//       lastName: req.body.lastName,
-//       password: req.body.password
-//     }
-//   }).spread(function(data,created) {
-//       // render home page with client's username
-//       res.render('user.ejs', {data:data});
-//       console.log("home page rendered after sign up");
-//   })
-// }
-
 app.use('/auth', require('./controllers/auth'));
 
 app.use('/posting', require('./controllers/posting'));
@@ -115,16 +71,25 @@ app.get("/guest", function(req,res) {
 })
 
 
+
+// // Using callback
+// geocoder.geocode('16 ang mo kio central 3 singapore 567748', function(err, res) {
+//   console.log(res);
+// });
+
+// // Or using Promise
+// geocoder.geocode('29 champs elysée paris')
+//   .then(function(res) {
+//     console.log(res);
+//   })
+//   .catch(function(err) {
+//     console.log(err);
+//   });
+
+
+
 var server = app.listen(3000);
 
 // process.env.port ||
 
 module.exports = server;
-
-
-
-// app.post("/login", logIn);
-// app.post("/signup", signUp);
-
-
-//

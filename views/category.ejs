@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Road3ripping</title>
+    <link rel="stylesheet" href="/user.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/category.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div id="rightContainer">
+      <div id="logo">ROAD<br>3PPING</div>
+      <div id="greeting"><strong>Hello</strong> <%- currentUser.firstName %>!</div>
+      <form action="/auth/logout" METHOD="GET">
+        <button id="logoutButton">Log out!</button>
+      </form>
+
+      <h1>all cafes</h1>
+
+      <div>this page will display all the information of the particular category clicked</div>
+
+      <% for(var i = 0; i < data.length; i++) { %>
+        <% var title = data[i].dataValues.title %>
+        <% var address = data[i].dataValues.address %>
+        <% var imageURL = data[i].dataValues.imageURL %>
+        <% var description = data[i].dataValues.description %>
+        <% var latitude = data[i].dataValues.latitude %>
+        <% var longitude = data[i].dataValues.longitude %>
+
+
+      <div><%= title %></div>
+      <div id="address"><%= address %></div>
+      <div><%= imageURL %></div>
+      <div><%= description %></div>
+      <input class="latitude" type="hidden" value=<%= latitude %>></input>
+      <input class="longitude" type="hidden" value=<%= longitude %>></input>
+
+      <% } %>
+
+    </div>
+
+
+  </body>
+</html>

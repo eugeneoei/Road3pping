@@ -26,36 +26,16 @@ $("document").ready(function(){
 // }).addTo(map)
 
   // $("#rightContainer").on("click", "#create", create);
-  // $("#rightContainer").on("click", "#submitPost", submitPost);
+  $("#rightContainer").on("click", "#categories", displayCategories);
 
 
 });
 
-// function create() {
-//   console.log("create button has been clicked");
-//   $("#rightContainer").append(
-//     "<form action='/auth/create' METHOD='POST'>" +
-//       "<input type='text' id='title' name='title' placeholder='title here'></input>" +
-//       "<input type='text' id='address' name='address' placeholder='address of location'></input>" +
-//       "<input type='url' id='imageURL' name='imageURL' placeholder='image link here'></input>" +
-//       "<textarea id='description' name='description' cols='40' rows='10' placeholder='your description here'></textarea>" +
-//       "<button id='submitPost'>Create Post</button>" +
-//     "</form>"
-//   )
-// }
-
-// function submitPost () {
-//   console.log("submit post button has been clicked");
-  // package new post and send it to the server together
-  // with an ajax POST request
-  // var data = {title: $("#title").val(),
-  //             url: $("#url").val(),
-  //             description: $("#description").val()};
-  //
-  // // send an ajax POST request
-  // $.ajax({
-  //   url: "http://localhost:3000/auths",
-  //   method:
-  //   data:
-  // })
-// }
+function displayCategories() {
+  console.log("categories button clicked");
+  $("#rightContainer").append(
+    "<div>" +
+      "<a href='posting/categories/cafes'>CAFES</a>" +
+    "</div>"
+  )
+}

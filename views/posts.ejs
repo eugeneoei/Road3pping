@@ -36,12 +36,14 @@
       <div>
         <% for(var i = 0; i < data.length; i++) { %>
           <% var title = data[i].dataValues.title %>
+          <% var category = data[i].dataValues.category %>
           <% var address = data[i].dataValues.address %>
           <% var imageURL = data[i].dataValues.imageURL %>
           <% var description = data[i].dataValues.description %>
           <% var id = data[i].dataValues.id %>
 
         <div>title: <%= title %></div>
+        <div>category: <%= category %></div>
         <div>address: <%= address %></div>
         <div>image url: <%= imageURL %></div>
         <div>description: <%= description %></div>

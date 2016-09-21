@@ -31,6 +31,7 @@
       <h1>post details</h1>
       <div>
         <% var title = data.dataValues.title %>
+        <% var category = data.dataValues.category %>
         <% var address = data.dataValues.address %>
         <% var imageURL = data.dataValues.imageURL %>
         <% var description = data.dataValues.description %>
@@ -40,6 +41,10 @@
 
           <div>
             title: <input type="text" name="title" value="<%= title %>"></input>
+          </div>
+
+          <div>
+            category: <input type="text" name="category" value="<%= category %>"></input>
           </div>
 
           <div>
