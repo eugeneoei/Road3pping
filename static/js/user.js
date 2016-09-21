@@ -13,6 +13,8 @@ $("document").ready(function(){
    accessToken: 'pk.eyJ1IjoiZXVnZW5lb2VpIiwiYSI6ImNpdDlnanl3bTBqNm8yb3AydGIzdnFncHQifQ.xbhCGgpxzfwL_NtEFDWkXg'
  }).addTo(map)
 
+
+
 //  var map = L.map('map', {
 //      // latitude then longtitude
 //      center: [1.290270, 103.851959],

@@ -13,6 +13,11 @@ $("document").ready(function(){
    accessToken: 'pk.eyJ1IjoiZXVnZW5lb2VpIiwiYSI6ImNpdDlnanl3bTBqNm8yb3AydGIzdnFncHQifQ.xbhCGgpxzfwL_NtEFDWkXg'
   }).addTo(map)
 
+
+  // L.MakiMarkers.accessToken = "pk.eyJ1IjoiZXVnZW5lb2VpIiwiYSI6ImNpdDlnanl3bTBqNm8yb3AydGIzdnFncHQifQ.xbhCGgpxzfwL_NtEFDWkXg";
+  // var icon = L.MakiMarkers.icon({icon: "rocket", color: "#b0b", size: "m"});
+  // L.marker([30.287, -97.72], {icon: icon}).addTo(map);
+
   // global variable to store lat-long pair values
   var coordinates = [];
   // attach all latitude values to a variable
@@ -40,6 +45,7 @@ $("document").ready(function(){
     // L.marker(coordinates[i]).addTo(map).openPopup(title[i].value);
 
     var marker = L.marker(coordinates[i]).addTo(map).bindPopup(title[i].value).openPopup();
+    // L.marker([30.287, -97.72], {icon: icon}).addTo(map);
     // var markers = [];
     // markers.push(marker);
     // var cities = L.layerGroup(markers);
@@ -49,6 +55,9 @@ $("document").ready(function(){
 
 
   // L.marker([1.375133, 103.846914]).addTo(map);
+
+  $("body").on("click", "#like", like);
+
 
 
 //  var map = L.map('map', {
@@ -73,6 +82,29 @@ $("document").ready(function(){
 
 
 });
+
+function like() {
+  console.log("like button clicked");
+  // var data = {id: parseInt(this.value)};
+  // send an ajax POST request
+  $.ajax({
+    url: "http://localhost:3000/posting/categories/post/" + this.value,
+    method: "GET",
+    // data: data
+  }).done(function(dataFromServer){
+    // once POST request is successful, take data sent from server and append
+    // new scoreBoard array (received in JSON format) onto html page
+    console.log(dataFromServer);
+    console.log(dataFromServer.count);
+
+    // this has to change. not dynamic at all
+    document.getElementsByClassName("count")[0].textContent = dataFromServer.count;
+
+    // displayScore(dataFromServer);
+    console.log("like increased successfully");
+
+  })
+}
 
 // http://api.mapbox.com/v4/mapbox.streets.html?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpbTgzcHQxMzAxMHp0eWx4bWQ1ZHN2NGcifQ.WVwjmljKYqKciEZIC3NfLA#17/1.35808/103.84800
 

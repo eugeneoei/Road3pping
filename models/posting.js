@@ -8,7 +8,8 @@ module.exports = function(sequelize, DataTypes) {
     description: DataTypes.TEXT,
     category: DataTypes.STRING,
     latitude: DataTypes.DECIMAL,
-    longitude: DataTypes.DECIMAL
+    longitude: DataTypes.DECIMAL,
+    count: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {

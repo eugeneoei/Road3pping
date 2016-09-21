@@ -49,7 +49,8 @@ router.post('/create', isLoggedIn, function(req,res) {
         imageURL: req.body.imageURL,
         description: req.body.description,
         latitude: latitude,
-        longitude: longitude
+        longitude: longitude,
+        count: 0
       }
     }).spread(function(data,created) {
       if(created) {
@@ -138,7 +139,6 @@ router.get('/categories/cafes', function(req,res) {
   db.posting.findAll({
       where: {category: "Cafes"}
   }).then(function(data) {
-    console.log(data);
     res.render('category.ejs',{data:data});
   })
 })
@@ -149,7 +149,6 @@ router.get('/categories/gym', function(req,res) {
   db.posting.findAll({
       where: {category: "Gym"}
   }).then(function(data) {
-    console.log(data);
     res.render('category.ejs',{data:data});
   })
 })
@@ -160,7 +159,6 @@ router.get('/categories/scenic', function(req,res) {
   db.posting.findAll({
       where: {category: "Scenic Overlook"}
   }).then(function(data) {
-    console.log(data);
     res.render('category.ejs',{data:data});
   })
 })
@@ -171,7 +169,6 @@ router.get('/categories/pharmacy', function(req,res) {
   db.posting.findAll({
       where: {category: "Pharmacy"}
   }).then(function(data) {
-    console.log(data);
     res.render('category.ejs',{data:data});
   })
 })
@@ -182,7 +179,6 @@ router.get('/categories/laundry', function(req,res) {
   db.posting.findAll({
       where: {category: "Laundry"}
   }).then(function(data) {
-    console.log(data);
     res.render('category.ejs',{data:data});
   })
 })
@@ -193,7 +189,6 @@ router.get('/categories/supermarkets', function(req,res) {
   db.posting.findAll({
       where: {category: "Supermarkets"}
   }).then(function(data) {
-    console.log(data);
     res.render('category.ejs',{data:data});
   })
 })
@@ -204,9 +199,26 @@ router.get('/categories/trails', function(req,res) {
   db.posting.findAll({
       where: {category: "Trails"}
   }).then(function(data) {
-    console.log(data);
     res.render('category.ejs',{data:data});
   })
+})
+
+router.get('/categories/post/:id', function(req,res) {
+  console.log("look here >>>>>>>>", req.params.id);
+  db.posting.findById(req.params.id).then(function(data) {
+    return data.increment('count', {by: 1})
+  // }).then(/* ... */)
+  //
+  // db.posting.update({
+  //   count: count + 1,
+  // }, {
+  //   where: {
+  //     id: req.params.id
+  //   }
+  }).then(function(data) {
+    // user will be an instance of User and stores the content of the table entry with id 2. if such an entry is not defined you will get null
+    res.json(data);
+  });
 })
 
 // '29 champs elysée paris',

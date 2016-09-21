@@ -4,11 +4,15 @@
     <meta charset="utf-8">
     <title>Road3ripping</title>
     <link rel="stylesheet" href="/css/category.css">
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
     <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/js/category.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <!-- <script src="https://Leaflet.MakiMarkers.js"></script> -->
+    <script type="text/javascript" src="/js/category.js"></script>
+
+
 
   </head>
   <body>
@@ -36,6 +40,8 @@
         <% var category = data[i].dataValues.category %>
         <% var latitude = data[i].dataValues.latitude %>
         <% var longitude = data[i].dataValues.longitude %>
+        <% var count = data[i].dataValues.count %>
+        <% var id = data[i].dataValues.id %>
 
 
 
@@ -45,6 +51,7 @@
         <img class="image" src="<%= imageURL %>"</img>
       </div>
       <div><%= description %></div>
+      <button id="like" value= <%= id %> >Like</button><span class="count"><%= count %></span>
       <!-- hidden type for plotting -->
       <input class="latitude" type="hidden" value= <%= latitude %> ></input>
       <input class="longitude" type="hidden" value= <%= longitude %> ></input>
