@@ -8,27 +8,42 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -100000;
   /*background-color: yellow;*/
 }
 
+#loginButton {
+  margin-top: 10px;
+  width: 100px;
+}
+
 #signupButton {
-  display:inline-block;
+  /*display:inline-block;*/
+  margin-top: 10px;
+  width: 100px;
 }
 
 #viewButton {
-  display:inline-block;
+  /*display:inline-block;*/
+  margin-top: 10px;
+  width: 100px;
 }
 
+/*.button {
+  margin-top: 10px;
+  width: 100px;
+}*/
+
 #container {
-  /* border: 1px solid black; */
+  /*border: 1px solid black; */
   width: 300px;
   height: 250px;
   /* margin: 0 auto; */
   background-color: black;
-  opacity: 0.4;
+  opacity: 0.6;
+  /* margin: 10%; */
   margin-top: 10%;
-  display: inline-block;
+  margin-left: 40%;
   position: fixed;
 }
 
@@ -37,8 +52,13 @@ body {
   font-family: 'Rock Salt', cursive;
   color: white;
   font-size: 30px;
+  margin-top: 15px;
 }
 
 #logOutMessage {
   color: white;
+}
+
+#buttons {
+  margin-top: 20px;
 }

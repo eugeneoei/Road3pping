@@ -3,17 +3,19 @@ $("document").ready(function(){
 
   var map = L.map('map', {
       // latitude then longtitude
-      center: [1.290270, 103.851959],
-      zoom: 13
+      // center: [1.290270, 103.851959],
+      center: [1.34, 103.845],
+      zoom: 11.8
   });
+
   L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
    attribution: '<a href="http://mapbox.com">Mapbox</a>',
-   maxZoom: 18,
+   maxZoom: 16,
    zoomControl: false,
    accessToken: 'pk.eyJ1IjoiZXVnZW5lb2VpIiwiYSI6ImNpdDlnanl3bTBqNm8yb3AydGIzdnFncHQifQ.xbhCGgpxzfwL_NtEFDWkXg'
   }).addTo(map)
 
-  
+
 
 //  var map = L.map('map', {
 //      // latitude then longtitude

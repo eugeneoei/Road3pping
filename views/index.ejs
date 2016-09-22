@@ -4,34 +4,37 @@
     <meta charset="utf-8">
     <title>Road3ripping</title>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
     <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
-    <script type="text/javascript" src="/js/main.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+
 
   </head>
   <body>
     <div id="map"></div>
 
-    <p>Background image of a map that can zoom in and out</p>
+    <!-- <p>Background image of a map that can zoom in and out</p> -->
 
     <div id="container">
 
       <div id="logo">ROAD3PPING</div>
 
-      <div>
+      <div id="buttons">
         <form action="auth/login" method="GET">
-          <button id="loginButton">Log in!</button>
+          <!-- <button type="button" class="btn btn-default"> -->
+          <button id="loginButton" type="submit" class="btn btn-primary">Log in!</button>
         </form>
 
         <form action="auth/signup" method="GET">
-          <button id="signupButton">Sign up!</button>
+          <button id="signupButton" type="submit" class="btn btn-primary">Sign up!</button>
         </form>
 
         <form action="/guest" method="GET">
-          <button id="viewButton">View!</button>
+          <button id="viewButton" type="submit" class="btn btn-primary">View!</button>
         </form>
       </div>
 
@@ -40,6 +43,7 @@
     </div>
 
 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   </body>
 </html>

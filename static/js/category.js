@@ -41,10 +41,16 @@ $("document").ready(function(){
 
 
   for (var i = 0; i < coordinates.length; i++) {
-    // L.marker(coordinates[i]).addTo(map).bindPopup(title[i].value);
-    // L.marker(coordinates[i]).addTo(map).openPopup(title[i].value);
+    // L.marker(coordinates[i]).addTo(map).bindPopup(title[i].value).openPopup();
 
-    L.marker(coordinates[i]).addTo(map).bindPopup(title[i].value).openPopup();
+    var circle = L.circle(coordinates[i], 200, {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5
+    }).addTo(map);
+
+    circle.bindPopup(title[i].value);
+
     // L.marker([30.287, -97.72], {icon: icon}).addTo(map);
     // var markers = [];
     // markers.push(marker);
@@ -140,10 +146,9 @@ function like() {
   }).done(function(dataFromServer){
     // once POST request is successful, take data sent from server and append
     // new scoreBoard array (received in JSON format) onto html page
-    console.log(dataFromServer);
-    console.log(dataFromServer.id);
-
-    console.log(dataFromServer.count);
+    // console.log(dataFromServer);
+    // console.log(dataFromServer.id);
+    // console.log(dataFromServer.count);
 
     // append new like value
     for (var key in dataFromServer) {

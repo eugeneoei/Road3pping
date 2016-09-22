@@ -71,25 +71,6 @@ app.get("/guest", function(req,res) {
 })
 
 
-
-// // Using callback
-// geocoder.geocode('16 ang mo kio central 3 singapore 567748', function(err, res) {
-//   console.log(res);
-// });
-
-// // Or using Promise
-// geocoder.geocode('29 champs elysée paris')
-//   .then(function(res) {
-//     console.log(res);
-//   })
-//   .catch(function(err) {
-//     console.log(err);
-//   });
-
-
-
-var server = app.listen(3000);
-
-// process.env.port ||
+var server = app.listen(process.env.PORT || 3000);
 
 module.exports = server;
