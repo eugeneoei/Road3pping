@@ -29,15 +29,16 @@ router.get('/post', isLoggedIn, function(req,res) {
 
 // after clicking create post button
 router.post('/create', isLoggedIn, function(req,res) {
+  console.log(">>>>>>>", req)
   //  convert address to geospatial then store it in database
   // var latitude = "";
   // var longitude = "";
   geocoder.geocode(req.body.address, function(err, r) {
-    console.log("look here", r);
+    // console.log("look here", r);
     var latitude = r[0].latitude;
-    console.log(typeof(">>>>>>>", latitude));
+    // console.log(typeof(">>>>>>>", latitude));
     var longitude = r[0].longitude;
-    console.log(typeof(">>>>>>>", longitude));
+    // console.log(typeof(">>>>>>>", longitude));
 
     // console.log("look here:", req.user.dataValues.id);
     db.posting.findOrCreate({

@@ -3,47 +3,76 @@
 <head>
   <meta charset="utf-8">
   <title>Road3ripping</title>
-  <link rel="stylesheet" href="/css/post.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
-  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-  <!-- need user.js file to run script -->
-  <script type="text/javascript" src="/js/user.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script type="text/javascript" src="/js/user.js"></script>
+  <link rel="stylesheet" href="/css/post.css">
 
 </head>
   <body>
     <div id="map"></div>
 
     <div id="rightContainer">
-      <div id="logo">ROAD<br>3PPING</div>
-      <div id="greeting"><strong>Hello</strong> <%- currentUser.firstName %>!</div>
-      <form action="/user" METHOD="GET">
-        <button id="homeButton">Home</button>
-      </form>
-      <form action="/auth/logout" METHOD="GET">
-        <button id="logoutButton">Log out!</button>
-      </form>
 
-      <p>this is a create post page</p>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="http://localhost:3000/"><div id="logo">ROAD3PPING</div></a></li>
+        <li role="presentation">
+          <a href="/user">Profile</a>
+        </li>
+        <li role="presentation">
+          <a href="/auth/logout">Log Out!</a>
+        </li>
+
+      </ul>
+
+      <div id="greeting">Share a post now!</div>
+
+      <div id="entries">
 
 
-      <form action='/posting/create' METHOD='POST'>
-        <input type='text' id='title' name='title' placeholder='title here'></input>
-        <select id="category" name="category">
-          <option value="Cafes">Cafes</option>
-          <option value="Gym">Gyms</option>
-          <option value="Scenic Overlook">Scenic Overlook</option>
-          <option value="Pharmacy">Pharmacy</option>
-          <option value="Laundry">Laundry</option>
-          <option value="Supermarkets">Supermarkets</option>
-          <option value="Trails">Trails</option>
-        </select>
-        <input type='text' id='address' name='address' placeholder='address of location'></input>
-        <input type='url' id='imageURL' name='imageURL' placeholder='image link here'></input>
-        <textarea id='description' name='description' cols='40' rows='10' placeholder='your description here'></textarea>
-        <button id='submitPost'>Create Post</button>
-      </form>
+        <form action='/posting/create' METHOD='POST'>
+          <!-- Title: -->
+          <div class="col-md-12">
+            <input class="entry" type='text' id='title' name='title' placeholder='Name of Place'></input>
+          </div>
+          <!-- Category:  -->
+          <div class="col-md-12">
+            <select class="entry" id="category" name="category">
+              <option value="Cafes">Cafes</option>
+              <option value="Gym">Gyms</option>
+              <option value="Scenic Overlook">Scenic Overlook</option>
+              <option value="Pharmacy">Pharmacy</option>
+              <option value="Laundry">Laundry</option>
+              <option value="Supermarkets">Supermarkets</option>
+              <option value="Trails">Trails</option>
+            </select>
+          </div>
+          <!-- Address:  -->
+          <div class="col-md-12">
+            <input class="entry" type='text' id='address' name='address' placeholder='Location of Place'></input>
+          </div>
+          <!-- Image:  -->
+          <div class="col-md-12">
+            <input class="entry" type='url' id='imageURL' name='imageURL' placeholder='Share an Image Link Here'></input>
+          </div>
+          <!-- Description:  -->
+          <div class="col-md-12">
+            <textarea class="entry" id='description' name='description' cols='40' rows='10' placeholder="What's good about this place!"></textarea>
+          </div>
+          <div class="col-md-12">
+            <button class="entry btn btn-primary" id='submitPost' type="submit">Create Post</button>
+          </div>
+        </form>
+
+
+
+      </div>
 
 
 

@@ -3,45 +3,81 @@
 <head>
   <meta charset="utf-8">
   <title>Road3ripping</title>
-  <link rel="stylesheet" href="/css/user.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
-  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-  <script type="text/javascript" src="/js/user.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script type="text/javascript" src="/js/user.js"></script>
+  <link rel="stylesheet" href="/css/user.css">
 
 </head>
   <body>
     <div id="map"></div>
 
     <div id="rightContainer">
-      <div id="logo">ROAD<br>3PPING</div>
-      <div id="greeting"><strong>Hello</strong> <%- currentUser.firstName %>!</div>
-      <form action="/user" METHOD="GET">
+
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="http://localhost:3000/"><div id="logo">ROAD3PPING</div></a></li>
+        <li role="presentation">
+          <a href="/user">Profile</a>
+        </li>
+        <li role="presentation">
+          <a href="/auth/logout">Log Out!</a>
+        </li>
+
+      </ul>
+
+      <% include ./partials/alerts %>
+
+
+      <div id="greeting">
+        Hello <%- currentUser.firstName %>!
+      </div>
+      <!-- <form action="/user" METHOD="GET">
         <button id="homeButton">Home</button>
       </form>
       <form action="/auth/logout" METHOD="GET">
         <button id="logoutButton">Log out!</button>
-      </form>
+      </form> -->
 
-      <p>this is a homepage after client successfully logged in or signed up</p>
+
 
       <!-- this alert will show when user has either logged in or signed up successfully -->
-      <% include ./partials/alerts %>
-
-      <form action="/posting/post" METHOD="GET">
-        <button id="post">POST</button>
-      </form>
 
 
 
-      <!-- view all user's posts -->
-      <form action="/posting/posts" METHOD="GET">
-        <button id="view">VIEW YOUR POSTS</button>
-      </form>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+          <form action="/posting/post" METHOD="GET">
+            <button id="post" type="submit" class="btn btn-primary">POST</button>
+          </form>
+        </div>
+        <div class="col-md-4">
+          <!-- view all user's posts -->
+          <form action="/posting/posts" METHOD="GET">
+            <button id="view" type="submit" class="btn btn-primary">VIEW YOUR POSTS</button>
+          </form>
+        </div>
+        <div class="col-md-2">
+          <!-- view different categories -->
+          <button id="categories" type="submit" class="btn btn-primary">CATEGORIES</button>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
 
-      <!-- view different categories -->
-      <button id="categories">CATEGORIES</button>
+
+      <div id="text">
+        Post something on your wall, view and edit your posts or check out what is around you!
+      </div>
+
+
+
+
 
 
 

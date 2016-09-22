@@ -12,24 +12,37 @@ body {
   /*background-color: yellow;*/
 }
 
-#signupButton {
+/*#signupButton {
   display:inline-block;
 }
 
 #viewButton {
   display:inline-block;
+}*/
+
+#loginEmail {
+  margin-top: 25px;
+  width: 250px;
+}
+
+#loginPassword {
+  margin-top: 10px;
+  width: 250px;
+}
+
+#loginButton {
+  margin-top: 20px;
+  width: 100px;
 }
 
 #container {
-  /* border: 1px solid black; */
   width: 300px;
   height: 250px;
-  margin: 0 auto;
   background-color: black;
-  opacity: 0.4;
+  opacity: 0.6;
   margin-top: 10%;
-  display: inline-block;
-  /*position: fixed;*/
+  margin-left: 40%;
+  position: fixed;
 }
 
 
@@ -37,6 +50,7 @@ body {
   font-family: 'Rock Salt', cursive;
   color: white;
   font-size: 30px;
+  margin-top: 20px;
 }
 
 #logOutMessage {

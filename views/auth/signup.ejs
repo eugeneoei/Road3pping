@@ -3,27 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>Road3ripping</title>
-    <link rel="stylesheet" href="../css/signup.css">
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-    <!-- you dont have to load a script if you dont need it -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
     <script type="text/javascript" src="../js/main.js"></script>
+    <link rel="stylesheet" href="../css/signup.css"/>
+
   </head>
   <body>
-    <p>this is a sign up page. body  background image of a map that can zoom in and out</p>
+    <!-- <p>this is a sign up page. body  background image of a map that can zoom in and out</p> -->
+
+    <div id="map"></div>
 
     <div id="container">
 
-      <div>Road3pping LOGO here</div>
+      <div id="logo">ROAD3PPING</div>
 
       <div>
-        <div>What are you waiting for?<br>Sign up!</div>
+        <!-- <div>What are you waiting for?<br>Sign up!</div> -->
 
         <form action="/auth/signup" method="POST">
           <input id="signupEmail" class="input" type="text" name="username" placeholder="Email">
           <input id="firstName" class="input" type="text" name="firstName" placeholder="First Name">
           <input id="lastName" class="input" type="text" name="lastName" placeholder="Last Name">
           <input id="signupPassword" class="input" type="password" name="password" placeholder="Password">
-          <button id="signupButton">Sign up!</button>
+          <button id="signupButton" class="btn btn-primary" type="submit">Sign up!</button>
         </form>
 
 

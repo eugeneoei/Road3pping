@@ -21,12 +21,38 @@ body {
 #logo {
   font-family: 'Rock Salt', cursive;
   color: black;
-  font-size: 30px;
-  margin-left: 20px;
-  margin-top: 20px;
+  font-size: 15px;
+  /*margin-left: 20px;
+  margin-top: 20px;*/
+  padding: auto;
+}
 
+.entry {
+  width: 400px;
+  margin-top: 10px;
+}
+
+#entries {
+  /*border: 1px solid black;*/
+  width: 500px;
+  height: 400px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 25px;
 }
 
 #greeting {
+  text-align: center;
+  margin: 0 auto;
+  /*border: 1px solid black;*/
+  width: 500px;
+  margin-left: 155px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  margin-top: 25px;
   display: inline-block;
 }
+
+/*#title {
+  width: 250px;
+}*/
