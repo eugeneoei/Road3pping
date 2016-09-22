@@ -44,7 +44,7 @@ $("document").ready(function(){
     // L.marker(coordinates[i]).addTo(map).bindPopup(title[i].value);
     // L.marker(coordinates[i]).addTo(map).openPopup(title[i].value);
 
-    var marker = L.marker(coordinates[i]).addTo(map).bindPopup(title[i].value).openPopup();
+    L.marker(coordinates[i]).addTo(map).bindPopup(title[i].value).openPopup();
     // L.marker([30.287, -97.72], {icon: icon}).addTo(map);
     // var markers = [];
     // markers.push(marker);
@@ -54,7 +54,53 @@ $("document").ready(function(){
   // marker.bindPopup("title").openPopup();
 
 
-  // L.marker([1.375133, 103.846914]).addTo(map);
+  // L.marker([1.2790971, 103.8414975]).addTo(map).bindPopup("you are here").openPopup();
+
+
+  // get client's current location
+  if (navigator.geolocation) {
+    var optn = {
+      enableHighAccuracy : true,
+  		timeout : Infinity,
+  		maximumAge : 0
+  	};
+  	navigator.geolocation.getCurrentPosition(showPosition, showError, optn);
+  } else {
+    alert('Geolocation is not supported in your browser');
+  }
+
+  function showPosition(position) {
+    // document.write('Latitude: '+position.coords.latitude+'Longitude: '+position.coords.longitude);
+    console.log(position.coords.latitude);
+    var latitude = position.coords.latitude;
+    // 1.2790971
+    var longitude = position.coords.longitude;
+    // 103.8414975
+    console.log(position.coords.longitude);
+    L.marker([latitude, longitude]).addTo(map).bindPopup("this is your current location").openPopup();
+    // L.marker([1.375133, 103.846914]).addTo(map);
+    // L.marker(coordinates[i]).addTo(map).bindPopup(title[i].value).openPopup();
+
+  }
+
+  function showError(error) {
+  	switch(error.code) {
+  		case error.PERMISSION_DENIED:
+  			alert("User denied the request for Geolocation.");
+  			break;
+  		case error.POSITION_UNAVAILABLE:
+  			alert("Location information is unavailable.");
+  			break;
+  		case error.TIMEOUT:
+  			alert("The request to get user location timed out.");
+  			break;
+  		case error.UNKNOWN_ERROR:
+  			alert("An unknown error occurred.");
+  			break;
+  	}
+  }
+
+
 
   $("body").on("click", ".like", like);
 
@@ -99,7 +145,7 @@ function like() {
 
     console.log(dataFromServer.count);
 
-    // append new like value 
+    // append new like value
     for (var key in dataFromServer) {
       for (var i = 0; i < (document.getElementsByClassName("like")).length; i++) {
         if (dataFromServer[key] == document.getElementsByClassName("like")[i].value) {
@@ -110,6 +156,7 @@ function like() {
     }
   })
 }
+
 
 // http://api.mapbox.com/v4/mapbox.streets.html?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpbTgzcHQxMzAxMHp0eWx4bWQ1ZHN2NGcifQ.WVwjmljKYqKciEZIC3NfLA#17/1.35808/103.84800
 
