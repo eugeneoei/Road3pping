@@ -56,7 +56,7 @@ $("document").ready(function(){
 
   // L.marker([1.375133, 103.846914]).addTo(map);
 
-  $("body").on("click", "#like", like);
+  $("body").on("click", ".like", like);
 
 
 
@@ -95,14 +95,19 @@ function like() {
     // once POST request is successful, take data sent from server and append
     // new scoreBoard array (received in JSON format) onto html page
     console.log(dataFromServer);
+    console.log(dataFromServer.id);
+
     console.log(dataFromServer.count);
 
-    // this has to change. not dynamic at all
-    document.getElementsByClassName("count")[0].textContent = dataFromServer.count;
-
-    // displayScore(dataFromServer);
-    console.log("like increased successfully");
-
+    // append new like value 
+    for (var key in dataFromServer) {
+      for (var i = 0; i < (document.getElementsByClassName("like")).length; i++) {
+        if (dataFromServer[key] == document.getElementsByClassName("like")[i].value) {
+          document.getElementsByClassName("count")[i].textContent = dataFromServer.count;
+          console.log("like increased successfully");
+        }
+      }
+    }
   })
 }
 
