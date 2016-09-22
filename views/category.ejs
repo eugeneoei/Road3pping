@@ -51,7 +51,19 @@
         <img class="image" src="<%= imageURL %>"</img>
       </div>
       <div><%= description %></div>
-      <button class="like" value= <%= id %> >Like</button><span class="count"><%= count %></span>
+      <button class="like" value= <%= id %> >Like</button>
+      <!-- <span class="count"> -->
+        <% if (count === 0) { %>
+          <span class="count"></span>
+        <% } else { %>
+          <span class="count"><%= count %></span>
+        <% } %>
+
+
+
+
+
+
       <!-- hidden type for plotting -->
       <input class="latitude" type="hidden" value= <%= latitude %> ></input>
       <input class="longitude" type="hidden" value= <%= longitude %> ></input>
