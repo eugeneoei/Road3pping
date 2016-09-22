@@ -3,36 +3,43 @@
 <head>
   <meta charset="utf-8">
   <title>Road3ripping</title>
-  <link rel="stylesheet" href="/css/edit.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
-  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-  <!-- need user.js file to run script -->
-  <script type="text/javascript" src="/js/user.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+  <script type="text/javascript" src="/js/user.js"></script>
+  <link rel="stylesheet" href="/css/edit.css">
 
 </head>
   <body>
     <div id="map"></div>
 
     <div id="rightContainer">
-      <div id="logo">ROAD<br>3PPING</div>
-      <div id="greeting"><strong>Hello</strong> <%- currentUser.firstName %>!</div>
-      <form action="/user" METHOD="GET">
-        <button id="homeButton">Home</button>
-      </form>
-      <form action="/auth/logout" METHOD="GET">
-        <button id="logoutButton">Log out!</button>
-      </form>
+
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="http://localhost:3000/"><div id="logo">ROAD3PPING</div></a></li>
+        <li role="presentation">
+          <a href="/user">Profile</a>
+        </li>
+        <li role="presentation">
+          <a href="/auth/logout">Log Out!</a>
+        </li>
+
+      </ul>
 
       <!-- this alert will show when user has either logged in or signed up successfully -->
       <% include ./partials/alerts %>
 
-      <p>after clicking edit, client can edit/delete and make changes to his/her post here</p>
+      <!-- <p>after clicking edit, client can edit/delete and make changes to his/her post here</p> -->
 
+      <div id="greeting">Post Details</div>
 
-      <h1>post details</h1>
-      <div>
+      <div id="entries">
         <% var title = data.dataValues.title %>
         <% var category = data.dataValues.category %>
         <% var address = data.dataValues.address %>
@@ -42,16 +49,18 @@
 
         <form action="/posting/posts/<%= id %>?_method=PUT" method="POST">
 
-          <div>
-            title: <input type="text" name="title" value="<%= title %>"></input>
+          <div class="col-md-12">
+            <!-- title:  -->
+            <input class="entry" type="text" name="title" value="<%= title %>"></input>
           </div>
 
           <!-- <div>
             category: <input type="text" name="category" value="<%= category %>"></input>
           </div> -->
-          <div>
-            Category:
-            <select id="category" name="category" value="<%= category %>">
+
+            <!-- Category: -->
+          <div class="col-md-12">
+            <select class="entry" id="category" name="category" value="<%= category %>">
               <option value="Cafes">Cafes</option>
               <option value="Gym">Gym</option>
               <option value="Scenic Overlook">Scenic Overlook</option>
@@ -62,24 +71,31 @@
             </select>
           </div>
 
-          <div>
-            address: <input type="text" name="address" value="<%= address %>"></input>
+          <div class="col-md-12">
+            <!-- address:  -->
+            <input class="entry" type="text" name="address" value="<%= address %>"></input>
           </div>
 
-          <div>
-            imageURL: <input type="text" name="imageURL" value="<%= imageURL %>"></input>
+          <div class="col-md-12">
+            <!-- imageURL:  -->
+            <input class="entry" type="text" name="imageURL" value="<%= imageURL %>"></input>
           </div>
 
-          <div>
-            description: <textarea type="text" name="description" rows="10" cols="40"><%= description %></textarea>
+          <div class="col-md-12">
+            <!-- description:  -->
+            <textarea class="entry" type="text" name="description" rows="10" cols="40"><%= description %></textarea>
           </div>
 
-          <button value="<%= id %>">UPDATE</button>
+          <div class="col-md-12">
+            <button class="entry btn btn-primary" type="submit" value="<%= id %>">UPDATE</button>
+          </div>
 
         </form>
 
         <form action="/posting/posts/<%= id %>?_method=DELETE" method="POST">
-          <button value="<%= id %>">DELETE</button>
+          <div class="col-md-12">
+            <button class="entry btn btn-primary" type="submit" value="<%= id %>">DELETE</button>
+          </div>
         </form>
 
       </div>

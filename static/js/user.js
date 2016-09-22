@@ -35,26 +35,34 @@ $("document").ready(function(){
 
 function displayCategories() {
   console.log("categories button clicked");
+
+  $("#text").empty();
+
   $("#rightContainer").append(
-    "<div>" +
+
+    "<div class='col-md-12 links'>" +
       "<a href='posting/categories/cafes'>CAFES</a>" +
     "</div>" +
-    "<div>" +
+    "<div class='col-md-12 links'>" +
       "<a href='posting/categories/gym'>GYMS</a>" +
     "</div>" +
-    "<div>" +
+    "<div class='col-md-12 links'>" +
       "<a href='posting/categories/scenic'>SCENIC OVERLOOK</a>" +
     "</div>" +
-    "<div>" +
+
+
+    "<div class='col-md-12 links'>" +
       "<a href='posting/categories/pharmacy'>PHARMACY</a>" +
     "</div>" +
-    "<div>" +
+    "<div class='col-md-12 links'>" +
       "<a href='posting/categories/laundry'>LAUNDRY</a>" +
     "</div>" +
-    "<div>" +
+    "<div class='col-md-12 links'>" +
       "<a href='posting/categories/supermarkets'>SUPERMARKETS</a>" +
     "</div>" +
-    "<div>" +
+
+
+    "<div class='col-md-12 links'>" +
       "<a href='posting/categories/trails'>TRAILS</a>" +
     "</div>"
   )

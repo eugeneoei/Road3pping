@@ -3,14 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Road3ripping</title>
-    <link rel="stylesheet" href="/css/category.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
-    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
     <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
-    <!-- <script src="https://Leaflet.MakiMarkers.js"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <script type="text/javascript" src="/js/category.js"></script>
+    <link rel="stylesheet" href="/css/category.css">
+
 
 
 
@@ -19,59 +23,65 @@
     <div id="map"></div>
 
     <div id="rightContainer">
-      <div id="logo">ROAD<br>3PPING</div>
-      <div id="greeting"><strong>Hello</strong> <%- currentUser.firstName %>!</div>
-      <form action="/user" METHOD="GET">
-        <button id="homeButton">Home</button>
-      </form>
-      <form action="/auth/logout" METHOD="GET">
-        <button id="logoutButton">Log out!</button>
-      </form>
 
-      <div>this page will display all the information of the particular category clicked</div>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="http://localhost:3000/"><div id="logo">ROAD3PPING</div></a></li>
+        <li role="presentation">
+          <a href="/user">Profile</a>
+        </li>
+        <li role="presentation">
+          <a href="/auth/logout">Log Out!</a>
+        </li>
 
-      <h1>blah</h1>
-
-      <% for(var i = 0; i < data.length; i++) { %>
-        <% var title = data[i].dataValues.title %>
-        <% var address = data[i].dataValues.address %>
-        <% var imageURL = data[i].dataValues.imageURL %>
-        <% var description = data[i].dataValues.description %>
-        <% var category = data[i].dataValues.category %>
-        <% var latitude = data[i].dataValues.latitude %>
-        <% var longitude = data[i].dataValues.longitude %>
-        <% var count = data[i].dataValues.count %>
-        <% var id = data[i].dataValues.id %>
+      </ul>
 
 
+      <!-- <div>this page will display all the information of the particular category clicked</div> -->
 
-      <div><%= title %></div>
-      <div><%= address %></div>
-      <div class="imgContainer">
-        <img class="image" src="<%= imageURL %>"</img>
+      <div id="header">Look around you!</div>
+
+      <div>
+
+        <div id="postContainer">
+
+          <% for(var i = 0; i < data.length; i++) { %>
+            <% var title = data[i].dataValues.title %>
+            <% var address = data[i].dataValues.address %>
+            <% var imageURL = data[i].dataValues.imageURL %>
+            <% var description = data[i].dataValues.description %>
+            <% var category = data[i].dataValues.category %>
+            <% var latitude = data[i].dataValues.latitude %>
+            <% var longitude = data[i].dataValues.longitude %>
+            <% var count = data[i].dataValues.count %>
+            <% var id = data[i].dataValues.id %>
+
+            <div id="grid" class="col-md-4">
+              <div id="title"><strong><%= title %></strong></div>
+              <div><%= address %></div>
+              <div class="imgContainer">
+                <img class="image" src="<%= imageURL %>"</img>
+              </div>
+              <div><%= description %></div>
+              <button id="button" class="like" value= <%= id %> >
+                <!-- Like -->
+                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+              </button>
+              <!-- <span class="count"> -->
+                <% if (count === 0) { %>
+                  <span class="count"></span>
+                <% } else { %>
+                  <span class="count"><%= count %></span>
+                <% } %>
+
+              <!-- hidden type for plotting -->
+              <input class="latitude" type="hidden" value= <%= latitude %> ></input>
+              <input class="longitude" type="hidden" value= <%= longitude %> ></input>
+              <input class="title" type="hidden" value="<%= title %>" ></input><br>
+            </div>
+          <% } %>
+
+        </div>
       </div>
-      <div><%= description %></div>
-      <button class="like" value= <%= id %> >Like</button>
-      <!-- <span class="count"> -->
-        <% if (count === 0) { %>
-          <span class="count"></span>
-        <% } else { %>
-          <span class="count"><%= count %></span>
-        <% } %>
-
-
-
-
-
-
-      <!-- hidden type for plotting -->
-      <input class="latitude" type="hidden" value= <%= latitude %> ></input>
-      <input class="longitude" type="hidden" value= <%= longitude %> ></input>
-      <input class="title" type="hidden" value="<%= title %>" ></input><br>
-
-      <% } %>
-
-    </div>
 
 
   </body>
